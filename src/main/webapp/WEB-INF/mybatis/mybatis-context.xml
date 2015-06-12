@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+
+	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<!-- <beans:property name="url" value="jdbc:mysql://182.162.19.62:3306/yoyangin?useUnicode=yes&amp;characterEncoding=UTF8"/> -->
+		<beans:property name="url" value="jdbc:mysql://121.166.198.7:3306/yoyangin?useUnicode=yes&amp;characterEncoding=UTF8"/>
+		<beans:property name="username" value="yoyang"/>
+		<beans:property name="password" value="1q2w3e4r!@"/>
+		<beans:property name="validationQuery" value="select 1"/>
+	</beans:bean>
+	
+	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource"/>
+		<beans:property name="mapperLocations" value="classpath:mybatis/map/**/*.xml"/>
+	</beans:bean>
+	
+	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg ref="sqlSessionFactory"/>
+	</beans:bean>
+	
+	
+	<!-- Tracsaction 세팅 -->
+<!-- 	<beans:bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<beans:property name="dataSource" ref="dataSource"/>
+	</beans:bean>
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="serviceOperation" expression="execution(public * kr.co.nursinghome..service.*Service.*(..))"/>
+		<aop:advisor id="transactionAdvisor" pointcut-ref="serviceOperation"  advice-ref="txAdvice"/>
+	</aop:config>
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+		    <tx:method name="get*" read-only="true" />
+			<tx:method name="search*" read-only="true" />
+			<tx:method name="insert*" propagation="REQUIRED"  rollback-for="Exception"/>
+			<tx:method name="update*" propagation="REQUIRED"  rollback-for="Exception"/>
+			<tx:method name="delete*" propagation="REQUIRED"  rollback-for="Exception"/>
+		</tx:attributes>
+	</tx:advice> -->
+	
+</beans:beans>
