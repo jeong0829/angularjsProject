@@ -85,4 +85,15 @@ app.controller('BodyCtrl', function($scope, $http){
 			"name" : "이한나",
 			"age" : "28"
 		}];
+	
+	$scope.onSubmit = function(){
+		
+		console.log(this.formData);
+		
+		$http({
+			method : 'post',
+			url  : '/tisoft/view1/POST',
+			data : this.formData
+		});
+	}
 });

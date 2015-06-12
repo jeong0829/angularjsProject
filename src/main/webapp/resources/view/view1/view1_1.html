@@ -6,3 +6,13 @@
 		<td>{{item.age}}</td>
 	</tr>
 </table>
+<table>
+	<tr>
+		<td><input type="text" ng-model="formData.id"></td>
+		<td><input type="text" ng-model="formData.password"></td>
+		<td><input type="text" ng-model="formData.name"></td>
+	</tr>
+	<tr>
+		<td colspan="3"><input type="button" ng-click="onSubmit();" value="전송"></td>
+	</tr>
+</table>

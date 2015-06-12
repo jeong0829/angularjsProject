@@ -16,9 +16,9 @@
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
 		<!-- <beans:property name="url" value="jdbc:mysql://182.162.19.62:3306/yoyangin?useUnicode=yes&amp;characterEncoding=UTF8"/> -->
-		<beans:property name="url" value="jdbc:mysql://121.166.198.7:3306/yoyangin?useUnicode=yes&amp;characterEncoding=UTF8"/>
-		<beans:property name="username" value="yoyang"/>
-		<beans:property name="password" value="1q2w3e4r!@"/>
+		<beans:property name="url" value="jdbc:mysql://121.166.198.7:3306/test?useUnicode=yes&amp;characterEncoding=UTF8"/>
+		<beans:property name="username" value="test"/>
+		<beans:property name="password" value="1234"/>
 		<beans:property name="validationQuery" value="select 1"/>
 	</beans:bean>
 	

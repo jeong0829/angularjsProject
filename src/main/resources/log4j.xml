@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="co.kr.tisoft">
+	<logger name="kr.co.nursing">
 		<level value="info" />
 	</logger>
 	
@@ -32,9 +32,14 @@
 		<level value="info" />
 	</logger>
 
+	<!-- SQL문과 해당 SQL을 실행시키는데 수행된 시간 정보(milliseconds)를 포함한다. -->
+	<logger name="jdbc.sqltiming">
+		<level value="debug"/>
+	</logger>
+
 	<!-- Root Logger -->
 	<root>
-		<priority value="warn" />
+		<level value="DEBUG" />
 		<appender-ref ref="console" />
 	</root>
 	
