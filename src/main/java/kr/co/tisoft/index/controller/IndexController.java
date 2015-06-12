@@ -20,7 +20,7 @@ public class IndexController {
 	@ResponseBody
 	public Map<String, Object> view1(){
 		
-		System.out.println("===============view1 Controller start");
+		System.out.println("===============view1 Controller start1");
 		
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		
